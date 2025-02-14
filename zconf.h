@@ -250,7 +250,8 @@ typedef uLong FAR uLongf;
 #endif
 
 /* MVS linker does not support external names larger than 8 bytes */
-#if defined(__MVS__)
+#if 0
+#if defined(__MVS__) || defined(__CMS__)
 #   pragma map(deflateInit_,"DEIN")
 #   pragma map(deflateInit2_,"DEIN2")
 #   pragma map(deflateEnd,"DEEND")
@@ -274,6 +275,34 @@ typedef uLong FAR uLongf;
 #   pragma map(inflate_trees_dynamic,"INTRDY")
 #   pragma map(inflate_trees_fixed,"INTRFI")
 #   pragma map(inflate_trees_free,"INTRFR")
+#endif
+#endif
+#if defined(__MVS__) || defined(__CMS__)
+#define deflateInit_ DEIN
+#define deflateInit2_ DEIN2
+#define deflateEnd DEEND
+#define inflateInit_ ININ
+#define inflateInit2_ ININ2
+#define inflateEnd INEND
+#define inflateSync INSY
+#define inflateSetDictionary INSEDI
+#define inflate_blocks INBL
+#define inflate_blocks_new INBLNE
+#define inflate_blocks_free INBLFR
+#define inflate_blocks_reset INBLRE
+#define inflate_blocks_sync_point INBLSP
+#define inflate_codes_new INCONEW
+#define inflate_codes_free INCOFR
+#define inflate_codes INCO
+#define inflate_fast INFA
+#define inflate_flush INFLU
+#define inflate_mask INMA
+#define inflate_set_dictionary INSEDI2
+#define inflate_copyright INCOPY
+#define inflate_trees_bits INTRBI
+#define inflate_trees_dynamic INTRDY
+#define inflate_trees_fixed INTRFI
+#define inflate_trees_free INTRFR
 #endif
 
 #endif /* _ZCONF_H */

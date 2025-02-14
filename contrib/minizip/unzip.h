@@ -58,6 +58,13 @@ typedef unzFile__ *unzFile;
 typedef voidp unzFile;
 #endif
 
+/* make external names 8-character unique */
+#define __ascii_to_ebcdic2 a2e2
+#define __ascii_to_ebcdic1 a2e1
+#define unzCloseCurrentFile unzCCF
+#define unzGetGlobalInfo unzGGI
+#define unzGetGlobalComment unzGGC
+
 
 #define UNZ_OK                                  (0)
 #define UNZ_END_OF_LIST_OF_FILE (-100)

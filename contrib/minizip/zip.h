@@ -62,6 +62,12 @@ typedef zipFile__ *zipFile;
 typedef voidp zipFile;
 #endif
 
+/* make external names 8-character unique */
+#define __ebcdic_to_ascii2 e2a2
+#define __ebcdic_to_ascii1 e2a1
+#define zipCloseFileInZip zClFileInZip
+
+
 #define ZIP_OK                                  (0)
 #define ZIP_ERRNO               (Z_ERRNO)
 #define ZIP_PARAMERROR                  (-102)
