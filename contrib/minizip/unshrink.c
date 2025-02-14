@@ -64,7 +64,7 @@
 
   ---------------------------------------------------------------------------*/
 
-/********************************* NEEDED PARTS ********************************/
+/********************************* NEEDED PARTS *****************************/
 
 #include <stdio.h>
 #include <string.h>
@@ -106,7 +106,7 @@ ZCONST ush near mask_bits[] = {
 #define __GPRO__ Uz_Globs *pG,
 #define __GDEF   Uz_Globs *pG;
 
-/********************************* FOR MINI-UNZIP ********************************/
+/**************************** FOR MINI-UNZIP ********************************/
 
 /* Read buf_size bytes and store the actual count in G.incnt, reset G.inptr */
 int readbyte (__GPRO) {
@@ -177,7 +177,7 @@ int flush OF((__GPRO__ uch *buf, ulg size, int unshrink)) {
 /*    return (-1); */ /* Error */
 };
 
-/********************************* BACK TO NORMAL ********************************/
+/****************************** BACK TO NORMAL *****************************/
 
 #define __UNSHRINK_C    /* identifies this source module */
 #define UNZIP_INTERNAL

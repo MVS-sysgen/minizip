@@ -10,8 +10,8 @@
 
   For uncompress .zip file, look at unzip.h
 
-   THIS IS AN ALPHA VERSION. AT THIS STAGE OF DEVELOPPEMENT, SOMES API OR STRUCTURE
-   CAN CHANGE IN FUTURE VERSION !!
+   THIS IS AN ALPHA VERSION. AT THIS STAGE OF DEVELOPPEMENT, 
+   SOMES API OR STRUCTURE CAN CHANGE IN FUTURE VERSION !!
    I WAIT FEEDBACK at mail info@winimage.com
    Visit also http://www.winimage.com/zLibDll/zip.htm for evolution
 
@@ -88,7 +88,7 @@ typedef struct
 {
 	tm_zip      tmz_date;       /* date in understandable format           */
     uLong       dosDate;       /* if dos_date == 0, tmu_date is used      */
-/*    uLong       flag;        */   /* general purpose bit flag        2 bytes */
+/* uLong       flag;        */   /* general purpose bit flag   2 bytes */
 
     uLong       internal_fa;    /* internal file attributes        2 bytes */
     uLong       external_fa;    /* external file attributes        4 bytes */

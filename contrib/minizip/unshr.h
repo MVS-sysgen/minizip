@@ -33,7 +33,7 @@ typedef struct Globals {
     FILE    * outfd;     /* outfile file handle */
 
     union work area;     /* space to do calculations */
-    min_info * pInfo;    /* textmode = 0 - no translation, no additional memory */
+    min_info * pInfo; /* textmode = 0 - no translation, no additional memory */
 
     uch     * inbuf;     /* input buffer */
     uch     * inptr;     /* pointer into input buffer, point to inbuf */

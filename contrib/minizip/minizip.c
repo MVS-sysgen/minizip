@@ -117,7 +117,7 @@ static long readdir (char * pds) {
 #ifdef XXX_WIN32
 uLong filetime(f, tmzip, dt)
     char *f;                /* name of file to get info on */
-    tm_zip *tmzip;             /* return value: access, modific. and creation times */
+    tm_zip *tmzip;     /* return value: access, modific. and creation times */
     uLong *dt;             /* dostime */
 {
   int ret = 0;
@@ -141,7 +141,7 @@ uLong filetime(f, tmzip, dt)
 #ifdef unix
 uLong filetime(f, tmzip, dt)
     char *f;                /* name of file to get info on */
-    tm_zip *tmzip;             /* return value: access, modific. and creation times */
+    tm_zip *tmzip;     /* return value: access, modific. and creation times */
     uLong *dt;             /* dostime */
 {
   int ret=0;
@@ -177,7 +177,7 @@ uLong filetime(f, tmzip, dt)
 #else
 uLong filetime(f, tmzip, dt)
     char *f;                /* name of file to get info on */
-    tm_zip *tmzip;             /* return value: access, modific. and creation times */
+    tm_zip *tmzip;     /* return value: access, modific. and creation times */
     uLong *dt;             /* dostime */
 {
     return 0;
@@ -208,22 +208,28 @@ int check_exist_file(filename)
 
 void do_banner()
 {
-	printf("MiniZip 0.15 MVS 4.0, demo of zLib + Zip package written by Gilles Vollant\n");
+	printf("MiniZip 0.15 MVS 4.0\n");
+    printf("Demo of zLib + Zip package written by Gilles Vollant\n");
 	printf("more info at http://www.winimage.com/zLibDll/minizip.html\n");
 	printf("Modified for MVS, see http://gccmvs.sourceforge.net\n\n");
 }
-
+------------------------------------------------------------------------------
 void do_help()
 {	
 	printf("Usage : minizip -abco zipfile files_to_add\n") ;
-    printf("-a opens files_to_add in text-translated mode and converts EBCDIC to ASCII.\n");
-    printf("-b zips files without length indicators (use with V,VB or U datasets only.)\n");
-    printf("-c chooses the alternate code-page 037 instead of the default 1047.\n");
-    printf("-o specifies that all files_to_add are Partition Organised datasets and\n");
+    printf("-a opens files_to_add in text-translated mode and converts "
+        "EBCDIC to ASCII.\n");
+    printf("-b zips files without length indicators (use with V,VB or U "
+        "datasets only.)\n");
+    printf("-c chooses the alternate code-page 037 instead of the default "
+        "1047.\n");
+    printf("-o specifies that all files_to_add are Partition Organised "
+        "datasets and\n");
     printf("that all members/alias's in each dataset should be zipped.\n");
     printf("-l to lowercase names\n");
     printf("-x <extension> to add an extension to all filenames\n");
-    printf("SYSUT1 and zipfile need to be allocated as F/FB with any LRECL and BLKSIZE.\n\n");
+    printf("SYSUT1 and zipfile need to be allocated as F/FB with any LRECL "
+        "and BLKSIZE.\n\n");
 }
 
 FILE        * t1fh;
@@ -321,7 +327,7 @@ int main(argc,argv)
 						opt_ascii = 0;
                         opt_binary = 1;
 #if 0
-                        _vmode = 1; /* switch JCC into 'true binary' mode for V[B] datasets */
+        _vmode = 1; /* switch JCC into 'true binary' mode for V[B] datasets */
 #endif
                     }
                     else
@@ -332,7 +338,8 @@ int main(argc,argv)
                     if ((c>='0') && (c<='9'))
                         opt_compress_level = c-'0';
                     else {
-                        printf ("Invalid parameter \"%c\" passed to minizip, exiting...\n", c);
+                        printf ("Invalid parameter \"%c\" passed to "
+                                "minizip, exiting...\n", c);
                         exit (EXIT_FAILURE);
                     };
 				}
@@ -398,12 +405,14 @@ int main(argc,argv)
 
                 if (opt_organised) {
                     readdir (argv[i]);
-                    if (member_count == 0) continue; /* Don't process an empty dataset */
+                    /* Don't process an empty dataset */
+                    if (member_count == 0) continue; 
                 };
                 cmember = 0;
                 do {
                     if (opt_organised)
-                        sprintf (filenameinzip, "%s(%s)", argv[i], &(members [9 * cmember++]));
+                        sprintf (filenameinzip, "%s(%s)", 
+                                 argv[i], &(members [9 * cmember++]));
                     else
                         strcpy (filenameinzip, argv[i]);
 
@@ -416,13 +425,14 @@ int main(argc,argv)
                         filememberinzip [j++] = 0;
                         strcat(filememberinzip, ext);
                         if (opt_lower) {
-                            for (j = 0; filememberinzip[j] != 0; j++) {
-                                filememberinzip[j] = tolower(filememberinzip[j]);
-                            }
+                          for (j = 0; filememberinzip[j] != 0; j++) {
+                            filememberinzip[j] = tolower(filememberinzip[j]);
+                          }
                         }
                     } else
                     if ((filenameinzip [0] == '/') && /* No member, then: */
-                        (filenameinzip [1] == '/') && /* Remove "DD:" or "//DSN:" */
+                        (filenameinzip [1] == '/') && 
+                        /* Remove "DD:" or "//DSN:" */
                         (toupper(filenameinzip [2]) == 'D') &&
                         (filenameinzip [3] != 0) &&
                         (toupper(filenameinzip [4]) == 'N') &&
@@ -436,8 +446,12 @@ int main(argc,argv)
                     else
                         strcpy (filememberinzip, filenameinzip); /* fallback! */
 
-                    zi.tmz_date.tm_sec = zi.tmz_date.tm_min = zi.tmz_date.tm_hour = 
-                    zi.tmz_date.tm_mday = zi.tmz_date.tm_min = zi.tmz_date.tm_year = 0;
+                    zi.tmz_date.tm_sec = 
+                    zi.tmz_date.tm_min = 
+                    zi.tmz_date.tm_hour = 
+                    zi.tmz_date.tm_mday = 
+                    zi.tmz_date.tm_min = 
+                    zi.tmz_date.tm_year = 0;
                     zi.dosDate = 0;
 /*                    zi.internal_fa = 0;*/
                     if (opt_ascii) {
@@ -459,7 +473,8 @@ int main(argc,argv)
                             printf ("Warning: can't open %s\n", tempfile);
 
                             strcpy (tempfile, "//DSN:&&TMPZIP");
-                            t1fh = fopen (tempfile, "wb,umode=0,recfm=fb,lrecl=80,blksize=3120,unit=sysda,pri=150");
+                            t1fh = fopen (tempfile, "wb,umode=0,recfm=fb,"
+                                "lrecl=80,blksize=3120,unit=sysda,pri=150");
                         };
 
                         if (t1fh == NULL) {
@@ -475,13 +490,16 @@ int main(argc,argv)
                     if (fin==NULL)
                     {
                         err=ZIP_ERRNO;
-                        printf("error in opening %s for reading (rc:%d, %d)\n",filenameinzip, err, errno);
+                        printf("error in opening %s for reading (rc:%d, %d)\n",
+                            filenameinzip, err, errno);
                     }
 
                     if (err == ZIP_OK) {
 
 #if 0
-                        if (__getdcb (_fileno(fin), NULL, &recfm, NULL, &lrecl, &blksize) == 0) {
+             if (__getdcb (_fileno(fin), 
+                    NULL, &recfm, NULL, 
+                    &lrecl, &blksize) == 0) {
                             if (lrecl == 0) lrecl = blksize;
                             switch (recfm) {
                             case 0x40:
@@ -521,9 +539,9 @@ int main(argc,argv)
                         };
 
                         err = zipOpenNewFileInZip(zf,filememberinzip,&zi,
-                                         NULL,0,NULL,0,/*NULL*/ comment,
-                                         (opt_compress_level != 0) ? Z_DEFLATED : 0,
-                                         opt_compress_level);
+                                NULL,0,NULL,0,/*NULL*/ comment,
+                                (opt_compress_level != 0) ? Z_DEFLATED : 0,
+                                opt_compress_level);
 
                         glen1 = ftell (t1fh);
                         fclose (t1fh);
@@ -534,7 +552,8 @@ int main(argc,argv)
                         t1fh = fopen (tempfile, "rb");
 #endif
                         if (t1fh == NULL) {
-                            printf ("Fatal error: can't reopen %s\n", tempfile);
+                            printf ("Fatal error: can't reopen %s\n"
+                                , tempfile);
                             exit (EXIT_FAILURE);
                         };
 
@@ -559,9 +578,10 @@ int main(argc,argv)
                         };
 
                         if (err != ZIP_OK)
-                            printf("error in opening %s in zipfile (rc:%d, %d)\n",filenameinzip, err, errno);
-
-                        binary_read = 0; /* Nothing in the read buffer yet - V[B] and U only */
+                            printf("error in opening %s in zipfile"
+                                " (rc:%d, %d)\n",filenameinzip, err, errno);
+                        /* Nothing in the read buffer yet - V[B] and U only */
+                        binary_read = 0; 
                     };
 
                     if (err == ZIP_OK)
@@ -570,8 +590,10 @@ int main(argc,argv)
                             err = ZIP_OK;
                             if (opt_binary) {
                                 
-                                if (binary_read) { /* still data in the current buffer... */
-                                    size_read = fread(buf,1,MIN(size_buf,binary_read),fin);
+                                if (binary_read) { 
+                                    /* still data in the current buffer... */
+                                    size_read = fread(buf,1,MIN(size_buf,
+                                                      binary_read),fin);
                                     binary_read -= size_read;
                                     k = size_buf - size_read;
                                 } else {
@@ -580,11 +602,12 @@ int main(argc,argv)
                                 };
 
                                 while (size_read < size_buf) {
-                                    if (fread (&binary_read, 1, 2, fin) != 2) {
+                                    if (fread (&binary_read,1,2,fin) != 2) {
                                         binary_read = 0;
                                         break;
                                     };
-                                    j = fread(&(((char *)buf) [size_read]),1,MIN(k,binary_read),fin);
+                                    j = fread(&(((char *)buf) [size_read]),1,
+                                              MIN(k,binary_read),fin);
                                     size_read += j;
                                     binary_read -= j;
                                     k -= j;
@@ -608,8 +631,9 @@ int main(argc,argv)
                                 err = zipWriteInFileInZip (zf,buf,size_read);
                                 if (err<0)
                                 {
-                                    printf("error in writing %s in the zipfile (rc:%d, %d)\n",
-                                                     filenameinzip, err, errno);
+                                    printf("error in writing %s in the "
+                                           "zipfile (rc:%d, %d)\n",
+                                             filenameinzip, err, errno);
                                 }
                                 
                             }
@@ -625,7 +649,8 @@ int main(argc,argv)
                         err = zipCloseFileInZip(zf);
                         if (err!=ZIP_OK) {
                     
-                            printf("error in closing %s in the zipfile (rc:%d, %d)\n",
+                            printf("error in closing %s in the "
+                                    "zipfile (rc:%d, %d)\n",
                                         filenameinzip, err, errno);
 
                         } else { /* Merge SYSUT files now... */
@@ -645,7 +670,8 @@ int main(argc,argv)
                             t1fh = fopen (tempfile, "rb");
 #endif
                             if (t1fh == NULL) {
-                                printf ("Fatal error: can't reopen %s\n", tempfile);
+                                printf ("Fatal error: can't"" reopen %s\n",
+                                        tempfile);
                                 exit (EXIT_FAILURE);
                             };
 
@@ -673,7 +699,8 @@ int main(argc,argv)
         }
         errclose = zipClose(zf,NULL);
         if (errclose != ZIP_OK)
-            printf("error in closing %s (rc:%d, %d)\n",filename_try, errclose, errno);
+            printf("error in closing %s (rc:%d, %d)\n",filename_try, 
+                    errclose, errno);
    }
 
     free(buf);

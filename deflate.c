@@ -1191,7 +1191,8 @@ local block_state deflate_fast(s, flush)
 #ifndef FASTEST
             if (s->match_length <= s->max_insert_length &&
                 s->lookahead >= MIN_MATCH) {
-                s->match_length--; /* string at strstart already in hash table */
+                /* string at strstart already in hash table */
+                s->match_length--; 
                 do {
                     s->strstart++;
                     INSERT_STRING(s, s->strstart, hash_head);

@@ -28,122 +28,17 @@
   usage :
   Usage : miniunz [-exvlo] file.zip [file_to_extract]
 
-  list the file in the zipfile, and print the content of FILE_ID.ZIP or README.TXT
-    if it exists
+  list the file in the zipfile, and print the 
+  content of FILE_ID.ZIP or README.TXT if it exists
 */
 
-
-/* change_file_date : change the date/time of a file
-    filename : the filename of the file where date/time must be modified
-    dosdate : the new date at the MSDos format (4 bytes)
-    tmu_date : the SAME new date at the tm_unz format */
-/*
-void change_file_date(filename,dosdate,tmu_date)
-	const char *filename;
-	uLong dosdate;
-	tm_unz tmu_date;
-{
-#ifdef WIN32
-  HANDLE hFile;
-  FILETIME ftm,ftLocal,ftCreate,ftLastAcc,ftLastWrite;
-
-  hFile = CreateFile(filename,GENERIC_READ | GENERIC_WRITE,
-                      0,NULL,OPEN_EXISTING,0,NULL);
-  GetFileTime(hFile,&ftCreate,&ftLastAcc,&ftLastWrite);
-  DosDateTimeToFileTime((WORD)(dosdate>>16),(WORD)dosdate,&ftLocal);
-  LocalFileTimeToFileTime(&ftLocal,&ftm);
-  SetFileTime(hFile,&ftm,&ftLastAcc,&ftm);
-  CloseHandle(hFile);
-#else
-#ifdef unix
-  struct utimbuf ut;
-  struct tm newdate;
-  newdate.tm_sec = tmu_date.tm_sec;
-  newdate.tm_min=tmu_date.tm_min;
-  newdate.tm_hour=tmu_date.tm_hour;
-  newdate.tm_mday=tmu_date.tm_mday;
-  newdate.tm_mon=tmu_date.tm_mon;
-  if (tmu_date.tm_year > 1900)
-      newdate.tm_year=tmu_date.tm_year - 1900;
-  else
-      newdate.tm_year=tmu_date.tm_year ;
-  newdate.tm_isdst=-1;
-
-  ut.actime=ut.modtime=mktime(&newdate);
-  utime(filename,&ut);
-#endif
-#endif
-}
-*/
-
-/* mymkdir and change_file_date are not 100 % portable
-   As I don't know well Unix, I wait feedback for the unix portion */
-/*
-int mymkdir(dirname)
-	const char* dirname;
-{
-    int ret=0;
-#ifdef WIN32
-	ret = mkdir(dirname);
-#else
-#ifdef unix
-	ret = mkdir (dirname,0775);
-#endif
-#endif
-	return ret;
-}
-
-int makedir (newdir)
-    char *newdir;
-{
-  char *buffer ;
-  char *p;
-  int  len = strlen(newdir);  
-
-  if (len <= 0) 
-    return 0;
-
-  buffer = (char*)malloc(len+1);
-  strcpy(buffer,newdir);
-  
-  if (buffer[len-1] == '/') {
-    buffer[len-1] = '\0';
-  }
-  if (mymkdir(buffer) == 0)
-    {
-      free(buffer);
-      return 1;
-    }
-
-  p = buffer+1;
-  while (1)
-    {
-      char hold;
-
-      while(*p && *p != '\\' && *p != '/')
-        p++;
-      hold = *p;
-      *p = 0;
-      if ((mymkdir(buffer) == -1) && (errno == ENOENT))
-        {
-          printf("couldn't create directory %s\n",buffer);
-          free(buffer);
-          return 0;
-        }
-      if (hold == 0)
-        break;
-      *p++ = hold;
-    }
-  free(buffer);
-  return 1;
-}
-*/
 
 void do_banner()
 {
-	printf("MiniUnz 0.15 MVS 4.0, demo of zLib + Unz package written by Gilles Vollant\n");
+	printf("MiniUnz 0.15 MVS 4.0\n");
+	printf("Demo of zLib + Unz package written by Gilles Vollant\n");
 	printf("more info at http://www.winimage.com/zLibDll/minizip.html\n");
-        printf("Modified for MVS - see http://gccmvs.sourceforge.net\n\n");
+    printf("Modified for MVS - see http://gccmvs.sourceforge.net\n\n");
 }
 
 extern void atoe (char * in, long len);
@@ -156,11 +51,15 @@ static int verbose = 0;
 void do_help()
 {	
 	printf("Usage : miniunz -aclv zipfile dest_file file_to_extract\n") ;
-    printf("-a opens files in text-translated mode and converts ASCII to EBCDIC.\n");
-    printf("-c chooses the alternate code-page 037 instead of the default 1047.\n");
+    printf("-a opens files in text-translated mode and converts ASCII"
+		   " to EBCDIC.\n");
+    printf("-c chooses the alternate code-page 037 instead of the default"
+		   " 1047.\n");
     printf("-l or -v only lists statistics and files in the zip archive.\n");
-    printf("If no file_to_extract is specified, all files are extracted and\n");
-    printf("the destination file will have (member) automatically appended.\n\n");
+    printf("If no file_to_extract is specified, all files are extracted "
+		   "and\n");
+    printf("the destination file will have (member) automatically "
+		   "appended.\n\n");
 }
 
 int do_list(uf)
@@ -183,7 +82,9 @@ int do_list(uf)
 		uLong ratio=0;
 		const char *string_method;
 
-        err = unzGetCurrentFileInfo(uf,&file_info,filename_inzip,sizeof(filename_inzip),NULL,0,&(comment [2]),75);
+        err = unzGetCurrentFileInfo(uf,&file_info,filename_inzip,
+			                        sizeof(filename_inzip),NULL,0,
+									&(comment [2]),75);
 
         if ((verbose) && (comment [2])) {
             comment [0] = ' ';
@@ -220,13 +121,17 @@ int do_list(uf)
         else
 			string_method="Unkn. ";
 
-		printf("%7lu  %6s %7lu %3lu%%  %2.2lu-%2.2lu-%2.2lu  %2.2lu:%2.2lu  %8.8lx   %s%s\n",
-			    file_info.uncompressed_size,string_method,file_info.compressed_size,
+		printf("%7lu  %6s %7lu %3lu%%  %2.2lu-%2.2lu-%2.2lu "
+			   " %2.2lu:%2.2lu  %8.8lx   %s%s\n",
+			    file_info.uncompressed_size,
+				string_method,
+				file_info.compressed_size,
 				ratio,
 				(uLong)file_info.tmu_date.tm_mon + 1,
                 (uLong)file_info.tmu_date.tm_mday,
 				(uLong)file_info.tmu_date.tm_year % 100,
-				(uLong)file_info.tmu_date.tm_hour,(uLong)file_info.tmu_date.tm_min,
+				(uLong)file_info.tmu_date.tm_hour,
+				(uLong)file_info.tmu_date.tm_min,
 				(uLong)file_info.crc,filename_inzip, comment);
 		if ((i+1)<gi.number_entry)
 		{
@@ -270,12 +175,16 @@ Uz_Globs * unsG;
 /*****************************************************************/
 /*****************************************************************/
 
-int do_extract_currentfile(uf,popt_extract_without_path,popt_overwrite,filename_to_write,member)
+int do_extract_currentfile(uf,
+						   popt_extract_without_path,
+						   popt_overwrite,
+						   filename_to_write,
+						   member)
 	unzFile uf;
 	const int* popt_extract_without_path;
     int* popt_overwrite;
     const char* filename_to_write; /* Where to write output */
-    int         member;            /* Does output file need (member) appended? */
+    int         member; /* Does output file need (member) appended? */
 {
 	char filename_inzip[256];
 	char* filename_withoutpath;
@@ -296,7 +205,11 @@ int do_extract_currentfile(uf,popt_extract_without_path,popt_overwrite,filename_
 	
     char filename_dst[512];
 
-    err = unzGetCurrentFileInfo(uf,&file_info,filename_inzip,sizeof(filename_inzip),NULL,0,NULL,0);
+    err = unzGetCurrentFileInfo(uf,
+								&file_info,
+								filename_inzip,
+								sizeof(filename_inzip),
+								NULL,0,NULL,0);
 
 	if (err!=UNZ_OK)
 	{
@@ -337,7 +250,8 @@ int do_extract_currentfile(uf,popt_extract_without_path,popt_overwrite,filename_
             p = strstr (filename_withoutpath, ".");
             if ((p) && (p != filename_withoutpath)) p [0] = 0;
             fix_mvs_member(filename_withoutpath);
-            sprintf (filename_dst, "%s(%s)", filename_to_write, filename_withoutpath);
+            sprintf (filename_dst, "%s(%s)", filename_to_write, 
+					 filename_withoutpath);
             write_filename = filename_dst;
         } else
 #ifdef __CMS__
@@ -356,34 +270,7 @@ int do_extract_currentfile(uf,popt_extract_without_path,popt_overwrite,filename_
 		{
 			printf("error %d with zipfile in unzOpenCurrentFile\n",err);
 		}
-/*
-		if (((*popt_overwrite)==0) && (err==UNZ_OK))
-		{
-			char rep;
-			FILE* ftestexist;
-			ftestexist = fopen(write_filename,"rb");
-			if (ftestexist!=NULL)
-			{
-				fclose(ftestexist);
-				do
-				{
-					char answer[128];
-					printf("The file %s exist. Overwrite ? [y]es, [n]o, [A]ll: ",write_filename);
-					scanf("%1s",answer);
-					rep = answer[0] ;
-					if ((rep>='a') && (rep<='z'))
-						rep -= 0x20;
-				}
-				while ((rep!='Y') && (rep!='N') && (rep!='A'));
-			}
 
-			if (rep == 'N')
-				skip = 1;
-
-			if (rep == 'A')
-				*popt_overwrite=1;
-		}
-*/
 		if ((skip==0) && (err==UNZ_OK))
 		{
             if (opt_ascii)
@@ -426,7 +313,8 @@ int do_extract_currentfile(uf,popt_extract_without_path,popt_overwrite,filename_
 				err = unzReadCurrentFile(uf,buf,size_buf);
 				if (err<0)	
 				{
-					printf("error %d with zipfile in unzReadCurrentFile\n",err);
+					printf("error %d with zipfile in"
+						   " unzReadCurrentFile\n",err);
 					break;
 				}
                 if (err>0) {
@@ -441,13 +329,17 @@ int do_extract_currentfile(uf,popt_extract_without_path,popt_overwrite,filename_
                         k = l;
                         s = strstr (t, "\r\n"); /* any to replace? */
                         while (s) {
-                            s [0] = '\n'; /* make CR - LF, but don't write the second one */
-                            j = (s - t) + 1;   /* calculate the right length */
+							/* make CR - LF, but don't write the second one */
+                            s [0] = '\n'; 
+							/* calculate the right length */
+                            j = (s - t) + 1;   
                             i += fwrite (t, 1, j, fout);
-                            i++;          /* make up for the missing LF now */
+							/* make up for the missing LF now */
+                            i++;          
 
                             k -= ((s - t) + 2);
-                            t = s + 2;         /* just past the two control characters... */
+							/* just past the two control characters... */
+                            t = s + 2;        
                             s = strstr (t, "\r\n");
                         };
                         i += fwrite (t, 1, k, fout);
@@ -458,7 +350,8 @@ int do_extract_currentfile(uf,popt_extract_without_path,popt_overwrite,filename_
 
 					if (i!=l)
 					{
-						printf("error in writing extracted file (%d#%d)\n", i, l);
+						printf("error in writing extracted "
+							   "file (%d#%d)\n", i, l);
                         err=UNZ_ERRNO;
 						break;
 					}
@@ -466,12 +359,6 @@ int do_extract_currentfile(uf,popt_extract_without_path,popt_overwrite,filename_
 			}
 			while (err>0);
 			fclose(fout);
-
-            /* DON'T CARE!!!
-			if (err==0) 
-				change_file_date(write_filename,file_info.dosDate,
-					             file_info.tmu_date);
-            */
 		}
 
         if (err==UNZ_OK)
@@ -532,7 +419,11 @@ int do_extract(uf,opt_extract_without_path,opt_overwrite,filename_to_write)
 	return 0;
 }
 
-int do_extract_onefile(uf,filename,opt_extract_without_path,opt_overwrite,filename_to_write)
+int do_extract_onefile(uf,
+					   filename,
+					   opt_extract_without_path,
+					   opt_overwrite,
+					   filename_to_write)
 	unzFile uf;
 	const char* filename;
 	int opt_extract_without_path;
@@ -546,8 +437,10 @@ int do_extract_onefile(uf,filename,opt_extract_without_path,opt_overwrite,filena
         return 2;
     }
 
-    if (do_extract_currentfile(uf,&opt_extract_without_path,
-                                      &opt_overwrite,filename_to_write,0) == UNZ_OK)
+    if (do_extract_currentfile(uf,
+							   &opt_extract_without_path,
+                               &opt_overwrite,
+							   filename_to_write,0) == UNZ_OK)
         return 0;
     else
         return 1;
@@ -600,7 +493,8 @@ int main(argc,argv)
                         verbose = 1;
                     }
                     else {
-                        printf ("Invalid parameter \"%c\" passed to miniunz, exiting...\n", c);
+                        printf ("Invalid parameter \"%c\" passed to"
+							    " miniunz, exiting...\n", c);
                         exit (EXIT_FAILURE);
                     };
 				}
@@ -641,10 +535,16 @@ int main(argc,argv)
         if (unsG != NULL) {
 
             if (filename_to_extract == NULL)
-		        i = do_extract(uf,opt_do_extract_withoutpath,opt_overwrite,filename_to_write);
+		        i = do_extract(uf,
+							   opt_do_extract_withoutpath,
+							   opt_overwrite,
+							   filename_to_write);
             else
-                i = do_extract_onefile(uf,filename_to_extract,
-                                      opt_do_extract_withoutpath,opt_overwrite,filename_to_write);
+                i = do_extract_onefile(uf,
+			   						   filename_to_extract,
+                                       opt_do_extract_withoutpath,
+									   opt_overwrite,
+									   filename_to_write);
 
             free (unsG);
 

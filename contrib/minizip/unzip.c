@@ -28,27 +28,43 @@
 /* IBM Code Page 037 <- ISO Latin-1 */
 
 unsigned char __ascii_to_ebcdic2 [] = {
-    "\x00\x01\x02\x03\x37\x2D\x2E\x2F\x16\x05\x15\x0B\x0C\x0D\x0E\x0F\x10\x11\x12\x13\x3C\x3D\x32\x26\x18\x19\x3F\x27\x1C\x1D\x1E\x1F"
-    "\x40\x5A\x7F\x7B\x5B\x6C\x50\x7D\x4D\x5D\x5C\x4E\x6B\x60\x4B\x61\xF0\xF1\xF2\xF3\xF4\xF5\xF6\xF7\xF8\xF9\x7A\x5E\x4C\x7E\x6E\x6F"
-    "\x7C\xC1\xC2\xC3\xC4\xC5\xC6\xC7\xC8\xC9\xD1\xD2\xD3\xD4\xD5\xD6\xD7\xD8\xD9\xE2\xE3\xE4\xE5\xE6\xE7\xE8\xE9\xBA\xE0\xBB\xB0\x6D"
-    "\x79\x81\x82\x83\x84\x85\x86\x87\x88\x89\x91\x92\x93\x94\x95\x96\x97\x98\x99\xA2\xA3\xA4\xA5\xA6\xA7\xA8\xA9\xC0\x4F\xD0\xA1\x07"
-    "\x20\x21\x22\x23\x24\x15\x06\x17\x28\x29\x2A\x2B\x2C\x09\x0A\x1B\x30\x31\x1A\x33\x34\x35\x36\x08\x38\x39\x3A\x3B\x04\x14\x3E\xFF"
-    "\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4A\x51\x52\x53\x54\x55\x56\x57\x58\x59\x62\x63\x64\x65\x66\x67\x68\x69\x6A\x70\x71\x72\x73"
-    "\x74\x75\x76\x77\x78\x80\x8A\x8B\x8C\x8D\x8E\x8F\x90\x9A\x9B\x9C\x9D\x9E\x9F\xA0\xAA\xAB\xAC\xAE\xAF\x5F\xB1\xB2\xB3\xB4\xB5\xB6"
-    "\xB7\xB8\xB9\xAD\xBD\xBC\xBE\xBF\xCA\xCB\xCC\xCD\xCE\xCF\xDA\xDB\xDC\xDD\xDE\xDF\xE1\xEA\xEB\xEC\xED\xEE\xEF\xFA\xFB\xFC\xFD\xFE"
+    "\x00\x01\x02\x03\x37\x2D\x2E\x2F\x16\x05\x15\x0B\x0C\x0D\x0E\x0F"
+	"\x10\x11\x12\x13\x3C\x3D\x32\x26\x18\x19\x3F\x27\x1C\x1D\x1E\x1F"
+    "\x40\x5A\x7F\x7B\x5B\x6C\x50\x7D\x4D\x5D\x5C\x4E\x6B\x60\x4B\x61"
+	"\xF0\xF1\xF2\xF3\xF4\xF5\xF6\xF7\xF8\xF9\x7A\x5E\x4C\x7E\x6E\x6F"
+    "\x7C\xC1\xC2\xC3\xC4\xC5\xC6\xC7\xC8\xC9\xD1\xD2\xD3\xD4\xD5\xD6"
+	"\xD7\xD8\xD9\xE2\xE3\xE4\xE5\xE6\xE7\xE8\xE9\xBA\xE0\xBB\xB0\x6D"
+    "\x79\x81\x82\x83\x84\x85\x86\x87\x88\x89\x91\x92\x93\x94\x95\x96"
+	"\x97\x98\x99\xA2\xA3\xA4\xA5\xA6\xA7\xA8\xA9\xC0\x4F\xD0\xA1\x07"
+    "\x20\x21\x22\x23\x24\x15\x06\x17\x28\x29\x2A\x2B\x2C\x09\x0A\x1B"
+	"\x30\x31\x1A\x33\x34\x35\x36\x08\x38\x39\x3A\x3B\x04\x14\x3E\xFF"
+    "\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4A\x51\x52\x53\x54\x55\x56"
+	"\x57\x58\x59\x62\x63\x64\x65\x66\x67\x68\x69\x6A\x70\x71\x72\x73"
+    "\x74\x75\x76\x77\x78\x80\x8A\x8B\x8C\x8D\x8E\x8F\x90\x9A\x9B\x9C"
+	"\x9D\x9E\x9F\xA0\xAA\xAB\xAC\xAE\xAF\x5F\xB1\xB2\xB3\xB4\xB5\xB6"
+    "\xB7\xB8\xB9\xAD\xBD\xBC\xBE\xBF\xCA\xCB\xCC\xCD\xCE\xCF\xDA\xDB"
+	"\xDC\xDD\xDE\xDF\xE1\xEA\xEB\xEC\xED\xEE\xEF\xFA\xFB\xFC\xFD\xFE"
 };
 
 /* IBM Code Page 1047 <- ISO Latin-1 */
 
 unsigned char __ascii_to_ebcdic1 [] = {
-    "\x00\x01\x02\x03\x37\x2D\x2E\x2F\x16\x05\x15\x0B\x0C\x0D\x0E\x0F\x10\x11\x12\x13\x3C\x3D\x32\x26\x18\x19\x3F\x27\x1C\x1D\x1E\x1F"
-    "\x40\x5A\x7F\x7B\x5B\x6C\x50\x7D\x4D\x5D\x5C\x4E\x6B\x60\x4B\x61\xF0\xF1\xF2\xF3\xF4\xF5\xF6\xF7\xF8\xF9\x7A\x5E\x4C\x7E\x6E\x6F"
-    "\x7C\xC1\xC2\xC3\xC4\xC5\xC6\xC7\xC8\xC9\xD1\xD2\xD3\xD4\xD5\xD6\xD7\xD8\xD9\xE2\xE3\xE4\xE5\xE6\xE7\xE8\xE9\xAD\xE0\xBD\x5F\x6D"
-    "\x79\x81\x82\x83\x84\x85\x86\x87\x88\x89\x91\x92\x93\x94\x95\x96\x97\x98\x99\xA2\xA3\xA4\xA5\xA6\xA7\xA8\xA9\xC0\x4F\xD0\xA1\x07"
-    "\x20\x21\x22\x23\x24\x25\x06\x17\x28\x29\x2A\x2B\x2C\x09\x0A\x1B\x30\x31\x1A\x33\x34\x35\x36\x08\x38\x39\x3A\x3B\x04\x14\x3E\xFF"
-    "\x41\xAA\x4A\xB1\x9F\xB2\x6A\xB5\xBB\xB4\x9A\x8A\xB0\xCA\xAF\xBC\x90\x8F\xEA\xFA\xBE\xA0\xB6\xB3\x9D\xDA\x9B\x8B\xB7\xB8\xB9\xAB"
-    "\x64\x65\x62\x66\x63\x67\x9E\x68\x74\x71\x72\x73\x78\x75\x76\x77\xAC\x69\xED\xEE\xEB\xEF\xEC\xBF\x80\xFD\xFE\xFB\xFC\xBA\xAE\x59"
-    "\x44\x45\x42\x46\x43\x47\x9C\x48\x54\x51\x52\x53\x58\x55\x56\x57\x8C\x49\xCD\xCE\xCB\xCF\xCC\xE1\x70\xDD\xDE\xDB\xDC\x8D\x8E\xDF"
+    "\x00\x01\x02\x03\x37\x2D\x2E\x2F\x16\x05\x15\x0B\x0C\x0D\x0E\x0F"
+	"\x10\x11\x12\x13\x3C\x3D\x32\x26\x18\x19\x3F\x27\x1C\x1D\x1E\x1F"
+    "\x40\x5A\x7F\x7B\x5B\x6C\x50\x7D\x4D\x5D\x5C\x4E\x6B\x60\x4B\x61"
+	"\xF0\xF1\xF2\xF3\xF4\xF5\xF6\xF7\xF8\xF9\x7A\x5E\x4C\x7E\x6E\x6F"
+    "\x7C\xC1\xC2\xC3\xC4\xC5\xC6\xC7\xC8\xC9\xD1\xD2\xD3\xD4\xD5\xD6"
+	"\xD7\xD8\xD9\xE2\xE3\xE4\xE5\xE6\xE7\xE8\xE9\xAD\xE0\xBD\x5F\x6D"
+    "\x79\x81\x82\x83\x84\x85\x86\x87\x88\x89\x91\x92\x93\x94\x95\x96"
+	"\x97\x98\x99\xA2\xA3\xA4\xA5\xA6\xA7\xA8\xA9\xC0\x4F\xD0\xA1\x07"
+    "\x20\x21\x22\x23\x24\x25\x06\x17\x28\x29\x2A\x2B\x2C\x09\x0A\x1B"
+	"\x30\x31\x1A\x33\x34\x35\x36\x08\x38\x39\x3A\x3B\x04\x14\x3E\xFF"
+    "\x41\xAA\x4A\xB1\x9F\xB2\x6A\xB5\xBB\xB4\x9A\x8A\xB0\xCA\xAF\xBC"
+	"\x90\x8F\xEA\xFA\xBE\xA0\xB6\xB3\x9D\xDA\x9B\x8B\xB7\xB8\xB9\xAB"
+    "\x64\x65\x62\x66\x63\x67\x9E\x68\x74\x71\x72\x73\x78\x75\x76\x77"
+	"\xAC\x69\xED\xEE\xEB\xEF\xEC\xBF\x80\xFD\xFE\xFB\xFC\xBA\xAE\x59"
+    "\x44\x45\x42\x46\x43\x47\x9C\x48\x54\x51\x52\x53\x58\x55\x56\x57"
+	"\x8C\x49\xCD\xCE\xCB\xCF\xCC\xE1\x70\xDD\xDE\xDB\xDC\x8D\x8E\xDF"
 };
 
 unsigned char * __ascii_to_ebcdic = __ascii_to_ebcdic1;
@@ -295,7 +311,8 @@ local int strcmpcasenosensitive_internal (fileName1,fileName2)
         (like 1 on Unix, 2 on Windows)
 
 */
-extern int ZEXPORT unzStringFileNameCompare (fileName1,fileName2,iCaseSensitivity)
+extern int ZEXPORT unzStringFileNameCompare (fileName1,
+	                                         fileName2,iCaseSensitivity)
 	const char* fileName1;
 	const char* fileName2;
 	int iCaseSensitivity;
@@ -480,8 +497,11 @@ extern unzFile ZEXPORT unzOpen (path)
 
 /*
   Close a ZipFile opened with unzipOpen.
-  If there is files inside the .Zip opened with unzipOpenCurrentFile (see later),
-    these files MUST be closed with unzipCloseCurrentFile before call unzipClose.
+  If there is files inside the .Zip opened 
+  with unzipOpenCurrentFile (see later),
+  these files MUST be closed with unzipCloseCurrentFile 
+  before call unzipClose.
+
   return UNZ_OK if there is no problem. */
 extern int ZEXPORT unzClose (file)
 	unzFile file;
@@ -575,7 +595,8 @@ local int unzlocal_GetCurrentFileInfoInternal (file,
 	if (file==NULL)
 		return UNZ_PARAMERROR;
 	s=(unz_s*)file;
-	if (fseek(s->file,s->pos_in_central_dir+s->byte_before_the_zipfile,SEEK_SET)!=0)
+	if (fseek(s->file,s->pos_in_central_dir+s->byte_before_the_zipfile,
+		      SEEK_SET)!=0)
 		err=UNZ_ERRNO;
 
 
@@ -721,10 +742,10 @@ local int unzlocal_GetCurrentFileInfoInternal (file,
   return UNZ_OK if there is no problem.
 */
 extern int ZEXPORT unzGetCurrentFileInfo (file,
-                                                  pfile_info,
-                                                  szFileName, fileNameBufferSize,
-                                                  extraField, extraFieldBufferSize,
-                                                  szComment,  commentBufferSize)
+                                          pfile_info,
+                                          szFileName, fileNameBufferSize,
+                                          extraField, extraFieldBufferSize,
+                                          szComment,  commentBufferSize)
 	unzFile file;
 	unz_file_info *pfile_info;
 	char *szFileName;
@@ -735,9 +756,9 @@ extern int ZEXPORT unzGetCurrentFileInfo (file,
 	uLong commentBufferSize;
 {
 	return unzlocal_GetCurrentFileInfoInternal(file,pfile_info,NULL,
-												szFileName,fileNameBufferSize,
-												extraField,extraFieldBufferSize,
-												szComment,commentBufferSize);
+											szFileName,fileNameBufferSize,
+											extraField,extraFieldBufferSize,
+											szComment,commentBufferSize);
 }
 
 /*
@@ -781,8 +802,10 @@ extern int ZEXPORT unzGoToNextFile (file)
 	if (s->num_file+1==s->gi.number_entry)
 		return UNZ_END_OF_LIST_OF_FILE;
 
-	s->pos_in_central_dir += SIZECENTRALDIRITEM + s->cur_file_info.size_filename +
-			s->cur_file_info.size_file_extra + s->cur_file_info.size_file_comment ;
+	s->pos_in_central_dir += SIZECENTRALDIRITEM + 
+			s->cur_file_info.size_filename +
+			s->cur_file_info.size_file_extra + 
+			s->cur_file_info.size_file_comment ;
 	s->num_file++;
 	err = unzlocal_GetCurrentFileInfoInternal(file,&s->cur_file_info,
 											   &s->cur_file_info_internal,
@@ -1091,8 +1114,8 @@ extern int ZEXPORT unzReadCurrentFile  (file, buf, len)
 			if (uReadThis == 0)
 				return UNZ_EOF;
 			if (fseek(pfile_in_zip_read_info->file,
-                      pfile_in_zip_read_info->pos_in_zipfile + 
-                         pfile_in_zip_read_info->byte_before_the_zipfile,SEEK_SET)!=0)
+                pfile_in_zip_read_info->pos_in_zipfile + 
+                pfile_in_zip_read_info->byte_before_the_zipfile,SEEK_SET)!=0)
 				return UNZ_ERRNO;
 			if (fread(pfile_in_zip_read_info->read_buffer,uReadThis,1,
                          pfile_in_zip_read_info->file)!=1)
@@ -1108,27 +1131,27 @@ extern int ZEXPORT unzReadCurrentFile  (file, buf, len)
 
 		if (pfile_in_zip_read_info->compression_method==0)
 		{
-			uInt uDoCopy,i ;
-			if (pfile_in_zip_read_info->stream.avail_out < 
-                            pfile_in_zip_read_info->stream.avail_in)
-				uDoCopy = pfile_in_zip_read_info->stream.avail_out ;
-			else
-				uDoCopy = pfile_in_zip_read_info->stream.avail_in ;
-				
-			for (i=0;i<uDoCopy;i++)
-				*(pfile_in_zip_read_info->stream.next_out+i) =
-                        *(pfile_in_zip_read_info->stream.next_in+i);
-					
-			pfile_in_zip_read_info->crc32 = crc32(pfile_in_zip_read_info->crc32,
-								pfile_in_zip_read_info->stream.next_out,
-								uDoCopy);
-			pfile_in_zip_read_info->rest_read_uncompressed-=uDoCopy;
-			pfile_in_zip_read_info->stream.avail_in -= uDoCopy;
-			pfile_in_zip_read_info->stream.avail_out -= uDoCopy;
-			pfile_in_zip_read_info->stream.next_out += uDoCopy;
-			pfile_in_zip_read_info->stream.next_in += uDoCopy;
-            pfile_in_zip_read_info->stream.total_out += uDoCopy;
-			iRead += uDoCopy;
+		  uInt uDoCopy,i ;
+		  if (pfile_in_zip_read_info->stream.avail_out < 
+                          pfile_in_zip_read_info->stream.avail_in)
+		  	uDoCopy = pfile_in_zip_read_info->stream.avail_out ;
+		  else
+		  	uDoCopy = pfile_in_zip_read_info->stream.avail_in ;
+		  	
+		  for (i=0;i<uDoCopy;i++)
+		  	*(pfile_in_zip_read_info->stream.next_out+i) =
+                      *(pfile_in_zip_read_info->stream.next_in+i);
+		  		
+		  pfile_in_zip_read_info->crc32 = crc32(pfile_in_zip_read_info->crc32,
+		  					pfile_in_zip_read_info->stream.next_out,
+		  					uDoCopy);
+		  pfile_in_zip_read_info->rest_read_uncompressed-=uDoCopy;
+		  pfile_in_zip_read_info->stream.avail_in -= uDoCopy;
+		  pfile_in_zip_read_info->stream.avail_out -= uDoCopy;
+		  pfile_in_zip_read_info->stream.next_out += uDoCopy;
+		  pfile_in_zip_read_info->stream.next_in += uDoCopy;
+          pfile_in_zip_read_info->stream.total_out += uDoCopy;
+		  iRead += uDoCopy;
 		}
         else
         if (pfile_in_zip_read_info->compression_method==1)

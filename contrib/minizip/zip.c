@@ -28,27 +28,43 @@
 /* IBM Code Page 037 -> ISO Latin-1 */
 
 unsigned char __ebcdic_to_ascii2 [] = {
-    "\x00\x01\x02\x03\x9C\x09\x86\x7F\x97\x8D\x8E\x0B\x0C\x0D\x0E\x0F\x10\x11\x12\x13\x9D\x85\x08\x87\x18\x19\x92\x8F\x1C\x1D\x1E\x1F"
-    "\x80\x81\x82\x83\x84\x0A\x17\x1B\x88\x89\x8A\x8B\x8C\x05\x06\x07\x90\x91\x16\x93\x94\x95\x96\x04\x98\x99\x9A\x9B\x14\x15\x9E\x1A"
-    "\x20\xA0\xA1\xA2\xA3\xA4\xA5\xA6\xA7\xA8\xA9\x2E\x3C\x28\x2B\x7C\x26\xAA\xAB\xAC\xAD\xAE\xAF\xB0\xB1\xB2\x21\x24\x2A\x29\x3B\xD9"
-    "\x2D\x2F\xB3\xB4\xB5\xB6\xB7\xB8\xB9\xBA\xBB\x2C\x25\x5F\x3E\x3F\xBC\xBD\xBE\xBF\xC0\xC1\xC2\xC3\xC4\x60\x3A\x23\x40\x27\x3D\x22"
-    "\xC5\x61\x62\x63\x64\x65\x66\x67\x68\x69\xC6\xC7\xC8\xC9\xCA\xCB\xCC\x6A\x6B\x6C\x6D\x6E\x6F\x70\x71\x72\xCD\xCE\xCF\xD0\xD1\xD2"
-    "\xD3\x7E\x73\x74\x75\x76\x77\x78\x79\x7A\xD4\xD5\xD6\xE3\xD7\xD8\x5E\xDA\xDB\xDC\xDD\xDE\xDF\xE0\xE1\xE2\x5B\x5D\xE5\xE4\xE6\xE7"
-    "\x7B\x41\x42\x43\x44\x45\x46\x47\x48\x49\xE8\xE9\xEA\xEB\xEC\xED\x7D\x4A\x4B\x4C\x4D\x4E\x4F\x50\x51\x52\xEE\xEF\xF0\xF1\xF2\xF3"
-    "\x5C\xF4\x53\x54\x55\x56\x57\x58\x59\x5A\xF5\xF6\xF7\xF8\xF9\xFA\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\xFB\xFC\xFD\xFE\xFF\x9F"
+    "\x00\x01\x02\x03\x9C\x09\x86\x7F\x97\x8D\x8E\x0B\x0C\x0D\x0E\x0F"
+    "\x10\x11\x12\x13\x9D\x85\x08\x87\x18\x19\x92\x8F\x1C\x1D\x1E\x1F"
+    "\x80\x81\x82\x83\x84\x0A\x17\x1B\x88\x89\x8A\x8B\x8C\x05\x06\x07"
+    "\x90\x91\x16\x93\x94\x95\x96\x04\x98\x99\x9A\x9B\x14\x15\x9E\x1A"
+    "\x20\xA0\xA1\xA2\xA3\xA4\xA5\xA6\xA7\xA8\xA9\x2E\x3C\x28\x2B\x7C"
+    "\x26\xAA\xAB\xAC\xAD\xAE\xAF\xB0\xB1\xB2\x21\x24\x2A\x29\x3B\xD9"
+    "\x2D\x2F\xB3\xB4\xB5\xB6\xB7\xB8\xB9\xBA\xBB\x2C\x25\x5F\x3E\x3F"
+    "\xBC\xBD\xBE\xBF\xC0\xC1\xC2\xC3\xC4\x60\x3A\x23\x40\x27\x3D\x22"
+    "\xC5\x61\x62\x63\x64\x65\x66\x67\x68\x69\xC6\xC7\xC8\xC9\xCA\xCB"
+    "\xCC\x6A\x6B\x6C\x6D\x6E\x6F\x70\x71\x72\xCD\xCE\xCF\xD0\xD1\xD2"
+    "\xD3\x7E\x73\x74\x75\x76\x77\x78\x79\x7A\xD4\xD5\xD6\xE3\xD7\xD8"
+    "\x5E\xDA\xDB\xDC\xDD\xDE\xDF\xE0\xE1\xE2\x5B\x5D\xE5\xE4\xE6\xE7"
+    "\x7B\x41\x42\x43\x44\x45\x46\x47\x48\x49\xE8\xE9\xEA\xEB\xEC\xED"
+    "\x7D\x4A\x4B\x4C\x4D\x4E\x4F\x50\x51\x52\xEE\xEF\xF0\xF1\xF2\xF3"
+    "\x5C\xF4\x53\x54\x55\x56\x57\x58\x59\x5A\xF5\xF6\xF7\xF8\xF9\xFA"
+    "\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\xFB\xFC\xFD\xFE\xFF\x9F"
 };
 
 /* IBM Code Page 1047 -> ISO Latin-1 */
 
 unsigned char __ebcdic_to_ascii1 [] = {
-    "\x00\x01\x02\x03\x9C\x09\x86\x7F\x97\x8D\x8E\x0B\x0C\x0D\x0E\x0F\x10\x11\x12\x13\x9D\x0A\x08\x87\x18\x19\x92\x8F\x1C\x1D\x1E\x1F"
-    "\x80\x81\x82\x83\x84\x85\x17\x1B\x88\x89\x8A\x8B\x8C\x05\x06\x07\x90\x91\x16\x93\x94\x95\x96\x04\x98\x99\x9A\x9B\x14\x15\x9E\x1A"
-    "\x20\xA0\xE2\xE4\xE0\xE1\xE3\xE5\xE7\xF1\xA2\x2E\x3C\x28\x2B\x7C\x26\xE9\xEA\xEB\xE8\xED\xEE\xEF\xEC\xDF\x21\x24\x2A\x29\x3B\x5E"
-    "\x2D\x2F\xC2\xC4\xC0\xC1\xC3\xC5\xC7\xD1\xA6\x2C\x25\x5F\x3E\x3F\xF8\xC9\xCA\xCB\xC8\xCD\xCE\xCF\xCC\x60\x3A\x23\x40\x27\x3D\x22"
-    "\xD8\x61\x62\x63\x64\x65\x66\x67\x68\x69\xAB\xBB\xF0\xFD\xFE\xB1\xB0\x6A\x6B\x6C\x6D\x6E\x6F\x70\x71\x72\xAA\xBA\xE6\xB8\xC6\xA4"
-    "\xB5\x7E\x73\x74\x75\x76\x77\x78\x79\x7A\xA1\xBF\xD0\x5B\xDE\xAE\xAC\xA3\xA5\xB7\xA9\xA7\xB6\xBC\xBD\xBE\xDD\xA8\xAF\x5D\xB4\xD7"
-    "\x7B\x41\x42\x43\x44\x45\x46\x47\x48\x49\xAD\xF4\xF6\xF2\xF3\xF5\x7D\x4A\x4B\x4C\x4D\x4E\x4F\x50\x51\x52\xB9\xFB\xFC\xF9\xFA\xFF"
-    "\x5C\xF7\x53\x54\x55\x56\x57\x58\x59\x5A\xB2\xD4\xD6\xD2\xD3\xD5\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\xB3\xDB\xDC\xD9\xDA\x9F"
+    "\x00\x01\x02\x03\x9C\x09\x86\x7F\x97\x8D\x8E\x0B\x0C\x0D\x0E\x0F"
+    "\x10\x11\x12\x13\x9D\x0A\x08\x87\x18\x19\x92\x8F\x1C\x1D\x1E\x1F"
+    "\x80\x81\x82\x83\x84\x85\x17\x1B\x88\x89\x8A\x8B\x8C\x05\x06\x07"
+    "\x90\x91\x16\x93\x94\x95\x96\x04\x98\x99\x9A\x9B\x14\x15\x9E\x1A"
+    "\x20\xA0\xE2\xE4\xE0\xE1\xE3\xE5\xE7\xF1\xA2\x2E\x3C\x28\x2B\x7C"
+    "\x26\xE9\xEA\xEB\xE8\xED\xEE\xEF\xEC\xDF\x21\x24\x2A\x29\x3B\x5E"
+    "\x2D\x2F\xC2\xC4\xC0\xC1\xC3\xC5\xC7\xD1\xA6\x2C\x25\x5F\x3E\x3F"
+    "\xF8\xC9\xCA\xCB\xC8\xCD\xCE\xCF\xCC\x60\x3A\x23\x40\x27\x3D\x22"
+    "\xD8\x61\x62\x63\x64\x65\x66\x67\x68\x69\xAB\xBB\xF0\xFD\xFE\xB1"
+    "\xB0\x6A\x6B\x6C\x6D\x6E\x6F\x70\x71\x72\xAA\xBA\xE6\xB8\xC6\xA4"
+    "\xB5\x7E\x73\x74\x75\x76\x77\x78\x79\x7A\xA1\xBF\xD0\x5B\xDE\xAE"
+    "\xAC\xA3\xA5\xB7\xA9\xA7\xB6\xBC\xBD\xBE\xDD\xA8\xAF\x5D\xB4\xD7"
+    "\x7B\x41\x42\x43\x44\x45\x46\x47\x48\x49\xAD\xF4\xF6\xF2\xF3\xF5"
+    "\x7D\x4A\x4B\x4C\x4D\x4E\x4F\x50\x51\x52\xB9\xFB\xFC\xF9\xFA\xFF"
+    "\x5C\xF7\x53\x54\x55\x56\x57\x58\x59\x5A\xB2\xD4\xD6\xD2\xD3\xD5"
+    "\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\xB3\xDB\xDC\xD9\xDA\x9F"
 };
 
 unsigned char * __ebcdic_to_ascii = __ebcdic_to_ascii1;
@@ -354,9 +370,6 @@ extern zipFile ZEXPORT zipOpen (pathname, append)
     zip_internal ziinit;
     zip_internal* zi;
 
-#if 0
-    ziinit.filezip = fopen(pathname,(append == 0) ? "wb,umode=0,vmode=2" : "ab,umode=0,vmode=2");
-#else
     ziinit.filezip = fopen(pathname,(append == 0) ? "wb" : "ab");
 #endif
     if (ziinit.filezip == NULL)
@@ -380,10 +393,16 @@ extern zipFile ZEXPORT zipOpen (pathname, append)
     return (zipFile)zi;
 }
 
-extern int ZEXPORT zipOpenNewFileInZip (file, filename, zipfi, 
-                                        extrafield_local, size_extrafield_local,
-                                        extrafield_global, size_extrafield_global,
-                                        comment, method, level)
+extern int ZEXPORT zipOpenNewFileInZip (file, 
+                                        filename,
+                                        zipfi, 
+                                        extrafield_local,
+                                        size_extrafield_local,
+                                        extrafield_global,
+                                        size_extrafield_global,
+                                        comment,
+                                        method,
+                                        level)
     zipFile file;
     const char* filename;
     const zip_fileinfo* zipfi;
@@ -440,7 +459,8 @@ extern int ZEXPORT zipOpenNewFileInZip (file, filename, zipfi,
     {
         if (zipfi->dosDate != 0)
             zi->ci.dosDate = zipfi->dosDate;
-        else zi->ci.dosDate = ziplocal_TmzDateToDosDate(&zipfi->tmz_date,zipfi->dosDate);
+        else zi->ci.dosDate = ziplocal_TmzDateToDosDate(&zipfi->tmz_date,
+                                                        zipfi->dosDate);
     }
 
     zi->ci.flag = 0;
@@ -460,35 +480,48 @@ extern int ZEXPORT zipOpenNewFileInZip (file, filename, zipfi,
                                       size_extrafield_global + size_comment;
     zi->ci.central_header = (char*)ALLOC((uInt)zi->ci.size_centralheader);
 
-    ziplocal_putValue_inmemory(zi->ci.central_header,(uLong)CENTRALHEADERMAGIC,4);
+    ziplocal_putValue_inmemory(zi->ci.central_header,
+                                (uLong)CENTRALHEADERMAGIC,4);
     /* version info */
     ziplocal_putValue_inmemory(zi->ci.central_header+4,(uLong)VERSIONMADEBY,2);
     ziplocal_putValue_inmemory(zi->ci.central_header+6,(uLong)20,2);
     ziplocal_putValue_inmemory(zi->ci.central_header+8,(uLong)zi->ci.flag,2);
-    ziplocal_putValue_inmemory(zi->ci.central_header+10,(uLong)zi->ci.method,2);
-    ziplocal_putValue_inmemory(zi->ci.central_header+12,(uLong)zi->ci.dosDate,4);
+    ziplocal_putValue_inmemory(zi->ci.central_header+10,
+                                (uLong)zi->ci.method,2);
+    ziplocal_putValue_inmemory(zi->ci.central_header+12,
+                                (uLong)zi->ci.dosDate,4);
     ziplocal_putValue_inmemory(zi->ci.central_header+16,(uLong)0,4); /*crc*/
-    ziplocal_putValue_inmemory(zi->ci.central_header+20,(uLong)0,4); /*compr size*/
-    ziplocal_putValue_inmemory(zi->ci.central_header+24,(uLong)0,4); /*uncompr size*/
-    ziplocal_putValue_inmemory(zi->ci.central_header+28,(uLong)size_filename,2);
-    ziplocal_putValue_inmemory(zi->ci.central_header+30,(uLong)size_extrafield_global,2);
-    ziplocal_putValue_inmemory(zi->ci.central_header+32,(uLong)size_comment,2);
-    ziplocal_putValue_inmemory(zi->ci.central_header+34,(uLong)0,2); /*disk nm start*/
+    /*compr size*/
+    ziplocal_putValue_inmemory(zi->ci.central_header+20,(uLong)0,4);
+    /*uncompr size*/ 
+    ziplocal_putValue_inmemory(zi->ci.central_header+24,(uLong)0,4);
+    ziplocal_putValue_inmemory(zi->ci.central_header+28,
+                                (uLong)size_filename,2);
+    ziplocal_putValue_inmemory(zi->ci.central_header+30,
+                                (uLong)size_extrafield_global,2);
+    ziplocal_putValue_inmemory(zi->ci.central_header+32,
+                                (uLong)size_comment,2);
+    /*disk nm start*/
+    ziplocal_putValue_inmemory(zi->ci.central_header+34,(uLong)0,2); 
 
     if (zipfi==NULL)
         ziplocal_putValue_inmemory(zi->ci.central_header+36,(uLong)0,2); 
     else
-        ziplocal_putValue_inmemory(zi->ci.central_header+36,(uLong)zipfi->internal_fa,2); 
+        ziplocal_putValue_inmemory(zi->ci.central_header+36,
+                                    (uLong)zipfi->internal_fa,2); 
 
     if (zipfi==NULL)
         ziplocal_putValue_inmemory(zi->ci.central_header+38,(uLong)0,4); 
     else
-        ziplocal_putValue_inmemory(zi->ci.central_header+38,(uLong)zipfi->external_fa,4);
+        ziplocal_putValue_inmemory(zi->ci.central_header+38,
+                                    (uLong)zipfi->external_fa,4);
 
-    ziplocal_putValue_inmemory(zi->ci.central_header+42,(uLong)zi->ci.pos_local_header,4);
+    ziplocal_putValue_inmemory(zi->ci.central_header+42,
+                                (uLong)zi->ci.pos_local_header,4);
 
     for (i=0;i<size_filename;i++)
-        *(zi->ci.central_header+SIZECENTRALHEADER+i) = __ebcdic_to_ascii[*(filename+i)];
+        *(zi->ci.central_header + SIZECENTRALHEADER + i) =
+             __ebcdic_to_ascii[*(filename+i)];
 
     for (i=0;i<size_extrafield_global;i++)
         *(zi->ci.central_header+SIZECENTRALHEADER+size_filename+i) =
@@ -507,7 +540,8 @@ extern int ZEXPORT zipOpenNewFileInZip (file, filename, zipfi,
     err = ziplocal_putValue(zi->filezip,(uLong)LOCALHEADERMAGIC,4);
 
     if (err==ZIP_OK)
-        err = ziplocal_putValue(zi->filezip,(uLong)20,2);/* version needed to extract */
+        /* version needed to extract */
+        err = ziplocal_putValue(zi->filezip,(uLong)20,2);
     
     if (err==ZIP_OK)
         err = ziplocal_putValue(zi->filezip,(uLong)zi->ci.flag,2);
@@ -522,10 +556,12 @@ extern int ZEXPORT zipOpenNewFileInZip (file, filename, zipfi,
         err = ziplocal_putValue(zi->filezip,(uLong)0,4); /* crc 32, unknown */
     
     if (err==ZIP_OK)
-        err = ziplocal_putValue(zi->filezip,(uLong)0,4); /* compressed size, unknown */
+        /* compressed size, unknown */
+        err = ziplocal_putValue(zi->filezip,(uLong)0,4); 
     
     if (err==ZIP_OK)
-        err = ziplocal_putValue(zi->filezip,(uLong)0,4); /* uncompressed size, unknown */
+        /* uncompressed size, unknown */
+        err = ziplocal_putValue(zi->filezip,(uLong)0,4); 
 
     if (err==ZIP_OK)
         err = ziplocal_putValue(zi->filezip,(uLong)size_filename,2);
@@ -601,8 +637,8 @@ extern int ZEXPORT zipWriteInFileInZip (file, buf, len)
     {
         if (zi->ci.stream.avail_out == 0)
         {
-            if (fwrite(zi->ci.buffered_data,(uInt)zi->ci.pos_in_buffered_data,1,zi->filezip)
-                                                                           !=1)
+            if (fwrite(zi->ci.buffered_data,
+                (uInt)zi->ci.pos_in_buffered_data,1,zi->filezip) !=1)
                 err = ZIP_ERRNO;
             zi->ci.pos_in_buffered_data = 0;
             zi->ci.stream.avail_out = (uInt)Z_BUFSIZE;
@@ -613,7 +649,8 @@ extern int ZEXPORT zipWriteInFileInZip (file, buf, len)
         {
             uLong uTotalOutBefore = zi->ci.stream.total_out;
             err=deflate(&zi->ci.stream,  Z_NO_FLUSH);
-            zi->ci.pos_in_buffered_data += (uInt)(zi->ci.stream.total_out - uTotalOutBefore) ;
+            zi->ci.pos_in_buffered_data += 
+                (uInt)(zi->ci.stream.total_out - uTotalOutBefore) ;
 
         }
         else
@@ -667,8 +704,8 @@ extern int ZEXPORT zipCloseFileInZip (file)
         uLong uTotalOutBefore;
         if (zi->ci.stream.avail_out == 0)
         {
-            if (fwrite(zi->ci.buffered_data,(uInt)zi->ci.pos_in_buffered_data,1,zi->filezip)
-                                                                           !=1)
+            if (fwrite(zi->ci.buffered_data,
+                        (uInt)zi->ci.pos_in_buffered_data,1,zi->filezip) !=1)
                 err = ZIP_ERRNO;
             zi->ci.pos_in_buffered_data = 0;
             zi->ci.stream.avail_out = (uInt)Z_BUFSIZE;
@@ -676,15 +713,16 @@ extern int ZEXPORT zipCloseFileInZip (file)
         }
         uTotalOutBefore = zi->ci.stream.total_out;
         err=deflate(&zi->ci.stream,  Z_FINISH);
-        zi->ci.pos_in_buffered_data += (uInt)(zi->ci.stream.total_out - uTotalOutBefore) ;
+        zi->ci.pos_in_buffered_data += 
+                (uInt)(zi->ci.stream.total_out - uTotalOutBefore) ;
     }
 
     if (err==Z_STREAM_END)
         err=ZIP_OK; /* this is normal */
 
     if ((zi->ci.pos_in_buffered_data>0) && (err==ZIP_OK))
-        if (fwrite(zi->ci.buffered_data,(uInt)zi->ci.pos_in_buffered_data,1,zi->filezip)
-                                                                       !=1)
+        if (fwrite(zi->ci.buffered_data,
+                (uInt)zi->ci.pos_in_buffered_data,1,zi->filezip) !=1)
             err = ZIP_ERRNO;
 
     if ((zi->ci.method == Z_DEFLATED) && (err==ZIP_OK))
@@ -693,38 +731,20 @@ extern int ZEXPORT zipCloseFileInZip (file)
         zi->ci.stream_initialised = 0;
     }
 
-    ziplocal_putValue_inmemory(zi->ci.central_header+16,(uLong)zi->ci.crc32,4); /*crc*/
+    /*crc*/
+    ziplocal_putValue_inmemory(zi->ci.central_header+16,
+                                (uLong)zi->ci.crc32,4); 
+    /*compr size*/
     ziplocal_putValue_inmemory(zi->ci.central_header+20,
-                                (uLong)zi->ci.stream.total_out,4); /*compr size*/
+                                (uLong)zi->ci.stream.total_out,4); 
+    /*uncompr size*/                            
     ziplocal_putValue_inmemory(zi->ci.central_header+24,
-                                (uLong)zi->ci.stream.total_in,4); /*uncompr size*/
+                                (uLong)zi->ci.stream.total_in,4); 
 
     if (err==ZIP_OK)
         err = add_data_in_datablock(&zi->central_dir,zi->ci.central_header,
                                        (uLong)zi->ci.size_centralheader);
     free(zi->ci.central_header);
-/*
-    if (err==ZIP_OK)
-    {
-        long cur_pos_inzip = ftell(zi->filezip);
-	    if (fseek(zi->filezip,
-                  zi->ci.pos_local_header + 14,SEEK_SET)!=0)
-		    err = ZIP_ERRNO;
-
-        if (err==ZIP_OK)
-            err = ziplocal_putValue(zi->filezip,(uLong)zi->ci.crc32,4); * crc 32, unknown *
-
-        if (err==ZIP_OK) * compressed size, unknown *
-            err = ziplocal_putValue(zi->filezip,(uLong)zi->ci.stream.total_out,4); 
-
-        if (err==ZIP_OK) * uncompressed size, unknown *
-            err = ziplocal_putValue(zi->filezip,(uLong)zi->ci.stream.total_in,4);
-
-	    if (fseek(zi->filezip,
-                  cur_pos_inzip,SEEK_SET)!=0)
-		    err = ZIP_ERRNO;
-    }
-*/
 
     g_ftell = (unsigned long)zi->ci.pos_local_header + 14 - g_offset;
     g_crc32 = (unsigned long)zi->ci.crc32;
@@ -786,10 +806,12 @@ extern int ZEXPORT zipClose (file, global_comment)
     if (err==ZIP_OK) /* number of this disk */
         err = ziplocal_putValue(zi->filezip,(uLong)0,2);
 
-    if (err==ZIP_OK) /* number of the disk with the start of the central directory */
+    if (err==ZIP_OK) 
+        /* number of the disk with the start of the central directory */
         err = ziplocal_putValue(zi->filezip,(uLong)0,2);
 
-    if (err==ZIP_OK) /* total number of entries in the central dir on this disk */
+    if (err==ZIP_OK) 
+        /* total number of entries in the central dir on this disk */
         err = ziplocal_putValue(zi->filezip,(uLong)zi->number_entry,2);
 
     if (err==ZIP_OK) /* total number of entries in the central dir */
@@ -798,15 +820,17 @@ extern int ZEXPORT zipClose (file, global_comment)
     if (err==ZIP_OK) /* size of the central directory */
         err = ziplocal_putValue(zi->filezip,(uLong)size_centraldir,4);
 
-    if (err==ZIP_OK) /* offset of start of central directory with respect to the 
-	                        starting disk number */
+    if (err==ZIP_OK) 
+    /* offset of start of central directory with 
+       respect to the starting disk number */
         err = ziplocal_putValue(zi->filezip,(uLong)centraldir_pos_inzip ,4);
 
     if (err==ZIP_OK) /* zipfile comment length */
         err = ziplocal_putValue(zi->filezip,(uLong)size_global_comment,2);
 
     if ((err==ZIP_OK) && (size_global_comment>0))
-        if (fwrite(global_comment,(uInt)size_global_comment,1,zi->filezip) !=1 )
+        if (fwrite(global_comment,
+                (uInt)size_global_comment,1,zi->filezip) !=1 )
                 err = ZIP_ERRNO;
     fclose(zi->filezip);
     TRYFREE(zi);
