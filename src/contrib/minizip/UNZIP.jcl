@@ -1,14 +1,16 @@
-//UNZIP    PROC P=                                 
+//UNZIP    PROC OUTDSN=,INZIP=,P=                                 
 //*
 //* JCL procedure for miniunz
 //*
 //* to use it pass the input zip file (must be a seq dataset)
 //* and the output PDS
-//* 
-//* e.g. //UNZIP EXEC UNZIP,P='IBMUSER.TEST.ZIP IBMUSER.OUT.PDS'
 //*
 //UNZIP    EXEC PGM=MINIUNZ,REGION=0M,              
-//  PARM='&P'                                    
+//  PARM='&P &INZIP DD:OUTDSN'  
+//OUTDSN    DD  DSN=&OUTDSN,DISP=(,CATLG),
+//             UNIT=SYSDA,VOL=SER=PUB001,
+//             SPACE=(CYL,(10,5,50)),                   
+//             DCB=(DSORG=PS,RECFM=FB,LRECL=80,BLKSIZE=27920)                   
 //STDOUT   DD   SYSOUT=*                           
 //SYSPRINT DD   SYSOUT=*                           
 //SYSTERM  DD   SYSOUT=*                           
