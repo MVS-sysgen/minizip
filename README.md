@@ -96,7 +96,7 @@ If no file_to_extract is specified, all files are extracted and
 the destination file will have (member) automatically appended.
 ```
 
-Much like MINIZIP you need to use JCL. Minizip expects the following:
+Much like MINIZIP you need to use JCL. Miniunz expects the following:
 
   - DD for `STDOUT`, `SYSPRINT`, `SYSTERM`, and `SYSIN`
   - DD for `SYSUT1`, which is the work DD
@@ -170,7 +170,7 @@ in `SYS2.PROCLIB`:
 ```jcl
 //UNZIP JOB (JOB),'ZIP',CLASS=A,MSGCLASS=H,NOTIFY=IBMUSER,REGION=0M
 //UNZIP EXEC UNZIP,OUTDSN='IBMUSER.PROCTEST',                      
-//             INZIP='IBMUSER.ZIP2'                                
+//             INZIP='IBMUSER.PROC.ZIP'                                
 ```
 
 
