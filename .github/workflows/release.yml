@@ -10,7 +10,7 @@ jobs:
     name: Build and Release
     runs-on: ubuntu-latest
     container:
-      image: mvsce:latest  # Specify the mvsce Docker container
+      image: mainframed767/mvsce:latest  # Specify the mvsce Docker container
 
     steps:
       - name: Checkout code
