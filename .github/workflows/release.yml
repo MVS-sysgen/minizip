@@ -29,6 +29,12 @@ jobs:
           cd $GITHUB_WORKSPACE
           make
           make MVSCE=/MVSCE release
+      - name: List minizip directory
+        run: |
+          ls -l /minizip/
+      - name: print working directory
+        run: pwd
+
 
       - name: Create Release
         id: create_release
