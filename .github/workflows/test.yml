@@ -7,6 +7,9 @@ on:
       - main
       - master
 
+env:
+  MVSCE: /MVSCE
+
 jobs:
   build-and-test:
     name: Build and Test
