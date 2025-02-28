@@ -32,4 +32,5 @@ jobs:
       - name: Run install
         run: |
           cd $GITHUB_WORKSPACE
+          make
           make MVSCE=/MVSCE install
