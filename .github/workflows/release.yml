@@ -31,7 +31,7 @@ jobs:
           make MVSCE=/MVSCE release
       - name: List minizip directory
         run: |
-          ls -l /minizip/
+          ls -l $GITHUB_WORKSPACE
       - name: print working directory
         run: pwd
 
