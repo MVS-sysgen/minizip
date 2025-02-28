@@ -20,13 +20,15 @@ jobs:
 
       - name: Install automvs
         run: |
-          pip install automvs
+          apt-get update || true
+          apt-get install -y python3 python3-pip || true
+          python3 -m pip install automvs
 
-      - name: Build release
+      - name: Run install
         run: |
           cd $GITHUB_WORKSPACE
-          export MVSCE=/MVSCE
-          make release
+          make
+          make MVSCE=/MVSCE release
 
       - name: Create Release
         id: create_release
