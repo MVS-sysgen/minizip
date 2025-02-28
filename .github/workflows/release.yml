@@ -35,7 +35,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            # Add your artifact paths here, for example:
             $GITHUB_WORKSPACE/MINIZIP.XMI
           generate_release_notes: true
         env:
