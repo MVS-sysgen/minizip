@@ -1,0 +1,40 @@
+name: Release Workflow
+
+on:
+  push:
+    tags:
+      - 'v*'  # Trigger on any tag that starts with v
+
+jobs:
+  build-and-release:
+    name: Build and Release
+    runs-on: ubuntu-latest
+    container:
+      image: mvsce:latest  # Specify the mvsce Docker container
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all history for tags and branches
+
+      - name: Install automvs
+        run: |
+          pip install automvs
+
+      - name: Build release
+        run: |
+          cd $GITHUB_WORKSPACE
+          export MVSCE=/MVSCE
+          make release
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            # Add your artifact paths here, for example:
+            $GITHUB_WORKSPACE/MINIZIP.XMI
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
