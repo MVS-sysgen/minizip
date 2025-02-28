@@ -7,25 +7,25 @@ on:
       - main
       - master
 
-  jobs:
-    build-and-test:
-      name: Build and Test
-      runs-on: ubuntu-latest
-      container:
-        image: mvsce:latest  # Specify the mvsce Docker container
-  
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v3
-          with:
-            fetch-depth: 0  # Fetch all history for tags and branches
-  
-        - name: Install automvs
-          run: |
-            pip install automvs
-  
-        - name: Run install
-          run: |
-            cd $GITHUB_WORKSPACE
-            export MVSCE=/MVSCE
-            make install
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    container:
+      image: mvsce:latest  # Specify the mvsce Docker container
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all history for tags and branches
+
+      - name: Install automvs
+        run: |
+          pip install automvs
+
+      - name: Run install
+        run: |
+          cd $GITHUB_WORKSPACE
+          export MVSCE=/MVSCE
+          make install
