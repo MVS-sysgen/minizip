@@ -33,6 +33,8 @@ jobs:
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v2
+        permissions:
+          contents: write
         with:
           files: |
             /__w/minizip/minizip/MINIZIP.XMI
