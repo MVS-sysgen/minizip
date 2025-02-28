@@ -22,7 +22,7 @@ jobs:
 
       - name: Install automvs
         run: |
-          pip install automvs
+          pip3 install automvs
 
       - name: Run install
         run: |
