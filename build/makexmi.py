@@ -70,6 +70,10 @@ arg_parser = argparse.ArgumentParser(description=desc)
 arg_parser.add_argument('-d', '--debug', help="Print debugging statements", action="store_const", dest="loglevel", const=logging.DEBUG, default=logging.WARNING)
 arg_parser.add_argument('-m', '--mvsce', help="MVS/CE folder location", default="MVSCE")
 arg_parser.add_argument('-j', '--jcl', help="MVS/CE folder location", default=f"{cwd}/compile.jcl")
+arg_parser.add_argument('-r', '--release', 
+                       help="Run in release mode (default: test mode)", 
+                       action="store_true", 
+                       default=False)
 args = arg_parser.parse_args()
 
 builder = automation(system_path=args.mvsce,loglevel=args.loglevel)
@@ -94,28 +98,30 @@ try:
         builder.submit(infile.read())
     builder.wait_for_job("MINIZIP")
     builder.check_maxcc("MINIZIP",steps_cc=max_cc)
-    builder.send_oper("$s punch1")
-    builder.change_punchcard_output("{}/minizip.xmit.punch".format(cwd))
-    builder.wait_for_string("$HASP000 OK")
+    if args.release:
+        builder.send_oper("$s punch1")
+        builder.change_punchcard_output("{}/minizip.xmit.punch".format(cwd))
+        
+        builder.wait_for_string("$HASP000 OK")
 
-    with open(f"{cwd}/src/contrib/minizip/UNZIP.jcl", 'r') as infile:
-        unzip = infile.read()
-    with open(f"{cwd}/src/contrib/minizip/ZIP.jcl", 'r') as infile:
-        zip = infile.read()
-    with open(f"{cwd}/README.md", 'r') as infile:
-        readme = infile.read()
+        with open(f"{cwd}/src/contrib/minizip/UNZIP.jcl", 'r') as infile:
+            unzip = infile.read()
+        with open(f"{cwd}/src/contrib/minizip/ZIP.jcl", 'r') as infile:
+            zip = infile.read()
+        with open(f"{cwd}/README.md", 'r') as infile:
+            readme = infile.read()
 
-    builder.submit(xmitout.format(unzip=unzip,zip=zip,readme=readme))
-    builder.wait_for_string("$HASP190 MINIXMIT SETUP -- PUNCH1   -- F = STD1")
-    builder.send_oper("$s punch1")
-    builder.wait_for_string("HASP250 MINIXMIT IS PURGED")
-    with open("{}/minizip.xmit.punch".format(cwd), 'rb') as punchfile:
-        punchfile.seek(160)
-        no_headers = punchfile.read()
-        no_footers = no_headers[:-80]
+        builder.submit(xmitout.format(unzip=unzip,zip=zip,readme=readme))
+        builder.wait_for_string("$HASP190 MINIXMIT SETUP -- PUNCH1   -- F = STD1")
+        builder.send_oper("$s punch1")
+        builder.wait_for_string("HASP250 MINIXMIT IS PURGED")
+        with open("{}/minizip.xmit.punch".format(cwd), 'rb') as punchfile:
+            punchfile.seek(160)
+            no_headers = punchfile.read()
+            no_footers = no_headers[:-80]
 
-    print(f"Writting {cwd}/MINIZIP.XMI")
-    with open(f"{cwd}/MINIZIP.XMI", 'wb') as xmi_out:
-        xmi_out.write(no_footers)
+        print(f"Writting {cwd}/MINIZIP.XMI")
+        with open(f"{cwd}/MINIZIP.XMI", 'wb') as xmi_out:
+            xmi_out.write(no_footers)
 finally:
     builder.quit_hercules()

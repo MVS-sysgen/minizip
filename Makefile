@@ -3,9 +3,15 @@
 SCRIPT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 SRC := $(SCRIPT_DIR)/src
 MINIZIP := $(SRC)/contrib/minizip
+BUILD := $(SCRIPT_DIR)/build
+
+# Update accordingly
+MVSCE := ./MVSCE
+SCRIPT := $(BUILD)/makexmi.py
 
 # Target file
 TARGET := compile.jcl
+MINIZIP_XMI := MINIZIP.XMI
 
 # Build type flags
 ifeq ($(MAKECMDGOALS),release)
@@ -19,12 +25,20 @@ H_SOURCES := $(wildcard $(SRC)/*.h) $(wildcard $(MINIZIP)/*.h)
 # Build type flags
 #RELEASE_BUILD :=
 
-.PHONY: all clean release
+.PHONY: all clean release install
 
 all: $(TARGET)
 
 release: RELEASE_BUILD := 1
-release: $(TARGET)
+release: $(TARGET) $(MINIZIP_XMI)
+
+install:
+	@echo "[+] Running install command"
+	@$(SCRIPT) -d -m $(MVSCE)
+
+$(MINIZIP_XMI): clean
+	@echo "[+] Creating MINIZIP.XMI for release"
+	@$(SCRIPT) -d -m $(MVSCE) --release
 
 $(TARGET): clean
 	@echo "[+] Putting required files in a single jobstream"
@@ -237,10 +251,5 @@ endif
 	@echo " ENTRY @@MAIN" >> $(TARGET)
 	@echo "/*" >> $(TARGET)
 
-
-#else
-#	@echo '//LOADLIB  DD DSN=SYS2.LINKLIB,DISP=SHR' >> $(TARGET)
-#endif
-
 clean:
-	@rm -f $(TARGET)
+	@rm -f $(TARGET) MINIZIP.XMI minizip.xmit.punch
