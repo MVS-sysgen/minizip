@@ -29,19 +29,13 @@ jobs:
           cd $GITHUB_WORKSPACE
           make
           make MVSCE=/MVSCE release
-      - name: List minizip directory
-        run: |
-          ls -l $GITHUB_WORKSPACE
-      - name: print working directory
-        run: pwd
-
 
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            /minizip/MINIZIP.XMI
+            /__w/minizip/minizip/MINIZIP.XMI
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
