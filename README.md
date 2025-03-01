@@ -65,7 +65,7 @@ Examples:
 ```jcl
 //ZIP JOB (JOB),'ZIP2',CLASS=A,MSGCLASS=H,NOTIFY=IBMUSER,REGION=0M
 //ZIP      EXEC PGM=MINIZIP,REGION=0M,                                
-//  PARM='-o DD:ZIPFILE SYS2.PROCLIB(UNZIP) SYS1.PROCLIB(ASMFC)'                                      
+//  PARM='DD:ZIPFILE SYS2.PROCLIB(UNZIP) SYS1.PROCLIB(ASMFC)'                                      
 //ZIPFILE DD DISP=(NEW,CATLG,DELETE),                                 
 //           DSN=IBMUSER.PROC2.ZIP,UNIT=SYSDA,                                     
 //           VOL=SER=PUB001,SPACE=(TRK,(15,15),RLSE),                    
