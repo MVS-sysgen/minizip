@@ -98,7 +98,11 @@ try:
         builder.submit(infile.read())
     builder.wait_for_job("MINIZIP")
     builder.check_maxcc("MINIZIP",steps_cc=max_cc)
-    if args.release:
+
+    if not args.release:
+        with open(f"{cwd}/build/test.jcl", "r") as infile:
+            builder.submit_and_check(infile.read())
+    else:
         builder.send_oper("$s punch1")
         builder.change_punchcard_output("{}/minizip.xmit.punch".format(cwd))
         
